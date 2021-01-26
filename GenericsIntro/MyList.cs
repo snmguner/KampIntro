@@ -16,7 +16,14 @@ namespace GenericsIntro
         }
         public void Add(T item)
         {
+            T[] tempArray = items;  //tempArray-geçici dizi
+            items = new T[items.Length+1];  //eleman sayısını bir arttırmış oldum. üst satırda tempArray ile eski değerleri tuttum.
+            for (int i = 0; i < tempArray.Length; i++)
+            {
+                items[i] = tempArray[i];
+            }
 
+            items[items.Length - 1] = item;
         }
     }
 }
